@@ -24,14 +24,22 @@
     </header>
     <main>
         <section id="upcoming-meal">
-            <p>
-                Our next meal is
-                <span id="next-meal"></span>
-            </p>
-            <p>
-                This is
-                <span id="meal-countdown"></span>
-            </p>
+            <div>
+                <div id="next-meal-month"></div>
+                <div id="next-meal-timebutton">
+                    <div id="next-meal-time"></div>
+                    <div id="next-meal-button">
+                        <a href="/assets/next-meal.ics">
+                            <button type="button">Add to Calendar</button>
+                        </a>
+                    </div>
+                </div>
+                <div id="next-meal-daydate">
+                    <div id="next-meal-date"></div>
+                    <div id="next-meal-day"></div>
+                </div>
+                <div id="next-meal-countdown"></div>
+            </div>
         </section>
         <section>
             <h2>Our menu will be:</h2>

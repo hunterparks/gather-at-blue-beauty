@@ -100,6 +100,134 @@ main section {
     text-align: center;
 }
 
+main section#upcoming-meal>div {
+    --border: var(--border-size) solid black;
+    --border-size: 0.125rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+        "next-meal-month"
+        "next-meal-daydate"
+        "next-meal-daydate"
+        "next-meal-daydate"
+        "next-meal-timebutton"
+        "next-meal-timebutton"
+        "next-meal-countdown"
+        "next-meal-countdown";
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal>div {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "next-meal-month   next-meal-timebutton"
+            "next-meal-daydate next-meal-timebutton"
+            "next-meal-daydate next-meal-countdown"
+            "next-meal-daydate next-meal-countdown";
+    }
+}
+
+main section#upcoming-meal>div>div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem;
+}
+
+main section#upcoming-meal #next-meal-month {
+    background-color: #000000;
+    border-top: var(--border);
+    border-right: var(--border);
+    border-left: var(--border);
+    color: var(--surface-0);
+    grid-area: next-meal-month;
+    font-size: calc(var(--font-size) * 1.5);
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal #next-meal-month {
+        border-right-width: calc(var(--border-size) / 2);
+    }
+}
+
+main section#upcoming-meal #next-meal-timebutton {
+    border-top: var(--border);
+    border-right: var(--border);
+    border-left: var(--border);
+    flex-direction: column;
+    grid-area: next-meal-timebutton;
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal #next-meal-timebutton {
+        border-left-width: calc(var(--border-size) / 2);
+    }
+}
+
+main section#upcoming-meal #next-meal-timebutton #next-meal-time {
+    font-size: calc(var(--font-size) * 1.5);
+}
+
+main section#upcoming-meal #next-meal-timebutton #next-meal-button button {
+    background-color: var(--surface-1);
+    border: none;
+    border-radius: 0.5rem;
+    font-style: italic;
+    padding-block-end: 0.25rem;
+    padding-block-start: 0.5rem;
+    padding-inline: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal #next-meal-button {
+        border-bottom-width: calc(var(--border-size) / 2);
+        border-left-width: calc(var(--border-size) / 2);
+    }
+}
+
+main section#upcoming-meal #next-meal-daydate {
+    border-right: var(--border);
+    border-bottom: var(--border);
+    border-left: var(--border);
+    flex-direction: column;
+    grid-area: next-meal-daydate;
+    line-height: 1.5;
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal #next-meal-daydate {
+        border-right-width: calc(var(--border-size) / 2);
+    }
+}
+
+main section#upcoming-meal #next-meal-daydate #next-meal-date {
+    font-size: calc(var(--font-size) * 2.5);
+    font-weight: bold;
+}
+
+main section#upcoming-meal #next-meal-daydate #next-meal-day {
+    font-size: calc(var(--font-size) * 1.5);
+}
+
+main section#upcoming-meal #next-meal-countdown {
+    border-top: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    border-left: var(--border);
+    grid-area: next-meal-countdown;
+    padding-inline: 2rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    main section#upcoming-meal #next-meal-countdown {
+        border-top-width: calc(var(--border-size) / 2);
+        border-left-width: calc(var(--border-size) / 2);
+    }
+}
+
 main section #meal-menu {
     display: flex;
     flex-direction: column;

@@ -70,23 +70,20 @@ function populateFooter() {
  */
 function populateNextMeal(nextMeal) {
     const nextMealDate = nextMeal.date;
-    const element = $('#next-meal');
-    let textToInsert = '<b>';
-    textToInsert += new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(nextMealDate);
-    textToInsert += '</b>';
-    if (![nextMealDate.getHours(), nextMealDate.getMinutes(), nextMealDate.getSeconds()].every((division) => division === 0)) {
-        textToInsert += ' at <b>';
-        textToInsert += new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(nextMealDate);
-        textToInsert += '</b>';
-    }
-    element.html(`${textToInsert}.`);
-}
 
-/**
- * @param {Meal} nextMeal
- */
-function populateMealCountdown(nextMeal) {
-    const nextMealDate = nextMeal.date;
+    const nextMealMonthElement = $('#next-meal-month');
+    nextMealMonthElement.text(new Intl.DateTimeFormat('en-US', { month: 'long' }).format(nextMealDate));
+
+    const nextMealTimeElement = $('#next-meal-time');
+    nextMealTimeElement.text(new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(nextMealDate));
+
+    const nextMealDateElement = $('#next-meal-date');
+    nextMealDateElement.text(new Intl.DateTimeFormat('en-US', { day: 'numeric' }).format(nextMealDate));
+
+    const nextMealDayElement = $('#next-meal-day');
+    nextMealDayElement.text(new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(nextMealDate));
+
+    const nextMealCountdownElement = $('#next-meal-countdown');
     const formatter = new Intl.RelativeTimeFormat(navigator.language, { style: 'long' });
     /**
      * @type {Array<[number, Intl.RelativeTimeFormatUnit]>}
@@ -113,11 +110,7 @@ function populateMealCountdown(nextMeal) {
         });
         return formatter.format(Math.round(duration), unit);
     }
-
-    const element = $('#meal-countdown');
-    let textToInsert = '';
-    textToInsert += formatTimeAgo(nextMealDate).replace('in', 'in about');
-    element.html(`${textToInsert}.`);
+    nextMealCountdownElement.text(`See you ${formatTimeAgo(nextMealDate).replace('in', 'in about')}!`)
 }
 
 /**
@@ -169,6 +162,5 @@ async function main() {
     populateFooter();
     const nextMeal = getNextMeal();
     populateNextMeal(nextMeal);
-    populateMealCountdown(nextMeal);
     populateMenu(nextMeal);
 }
