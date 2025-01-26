@@ -13,34 +13,7 @@
 /**
  * @type {Array<Meal>}
  */
-const meals = [
-    {
-        date: new Date(2025, 1, 2, 10, 30), // Feb 2, 2025, 10:30 AM
-        mealInfo: {
-            entrees: [
-                'English muffins with apple or cherry butter',
-                'Sausage egg bake',
-                'Kringle',
-                'Fruit'
-            ],
-            drinks: [
-                'Water',
-                'Orange juice',
-                'Lemonade',
-                'Milk'
-            ]
-        }
-    },
-    {
-        date: new Date(2025, 2, 23), // Mar 23, 2025
-    },
-    {
-        date: new Date(2025, 3, 6), // April 6, 2025
-    },
-    {
-        date: new Date(2025, 4, 4), // May 4, 2025
-    }
-];
+let meals;
 
 $(document).ready(main);
 
@@ -159,6 +132,12 @@ function populateMenu(nextMeal) {
 }
 
 async function main() {
+    const response = await fetch('/scripts/event-details.json');
+    const data = await response.json();
+    meals = [...data].map((meal) => {
+        meal.date = new Date(meal.date);
+        return meal;
+    });
     populateFooter();
     const nextMeal = getNextMeal();
     populateNextMeal(nextMeal);
