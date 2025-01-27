@@ -103,6 +103,7 @@ main section {
 main section#upcoming-meal>div {
     --border: var(--border-size) solid black;
     --border-size: 0.125rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(8, 1fr);
@@ -116,6 +117,7 @@ main section#upcoming-meal>div {
         "next-meal-countdown"
         "next-meal-countdown";
 }
+
 
 @media only screen and (min-width: 1024px) {
     main section#upcoming-meal>div {
