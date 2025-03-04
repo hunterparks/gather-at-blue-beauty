@@ -1,0 +1,28 @@
+[
+    {
+        "date": "2025-02-02T16:30:00.000Z",
+        "mealInfo": {
+            "entrees": [
+                "English muffins with apple or cherry butter",
+                "Sausage egg bake",
+                "Kringle",
+                "Fruit"
+            ],
+            "drinks": [
+                "Water",
+                "Orange juice",
+                "Lemonade",
+                "Milk"
+            ]
+        }
+    },
+    {
+        "date": "2025-03-23T05:00:00.000Z"
+    },
+    {
+        "date": "2025-04-06T05:00:00.000Z"
+    },
+    {
+        "date": "2025-05-04T05:00:00.000Z"
+    }
+]
