@@ -132,7 +132,7 @@ function populateMenu(nextMeal) {
 }
 
 async function main() {
-    const response = await fetch('/scripts/event-details.json');
+    const response = await fetch('/assets/meals.json');
     const data = await response.json();
     meals = [...data].map((meal) => {
         meal.date = new Date(meal.date);
