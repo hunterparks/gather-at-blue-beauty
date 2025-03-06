@@ -17,7 +17,23 @@
         }
     },
     {
-        "date": "2025-03-23T05:00:00.000Z"
+        "date": "2025-03-23T17:00:00.000Z",
+        "mealInfo": {
+            "appetizers": [
+                "Cheese & Crackers",
+                "Fruit"
+            ],
+            "entrees": [
+                "White Chicken Chili",
+                "Potato and Green Bean Salad",
+                "Bread"
+            ],
+            "drinks": [
+                "Water",
+                "Lemonade",
+                "Milk"
+            ]
+        }
     },
     {
         "date": "2025-04-06T05:00:00.000Z"
