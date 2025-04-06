@@ -25,8 +25,7 @@
             ],
             "entrees": [
                 "Ham & Cheese Sliders",
-                "Potato and Green Bean Salad",
-                "Bread"
+                "Potato and Green Bean Salad"
             ],
             "drinks": [
                 "Water",
@@ -36,7 +35,22 @@
         }
     },
     {
-        "date": "2025-04-06T17:00:00.000Z"
+        "date": "2025-04-06T17:00:00.000Z",
+        "mealInfo": {
+            "appetizers": [
+                "Cheese & Crackers",
+                "Fruit"
+            ],
+            "entrees": [
+                "Chicken Alfredo",
+                "Salad",
+            ],
+            "drinks": [
+                "Water",
+                "Lemonade",
+                "Milk"
+            ]
+        }
     },
     {
         "date": "2025-05-04T17:00:00.000Z"
