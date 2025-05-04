@@ -17,6 +17,46 @@ let meals;
 
 $(document).ready(main);
 
+function clearMain() {
+    $('main').html('');
+}
+
+function createMenuStructure() {
+    const mainElement = $('main');
+
+    const sectionElement = $('<section>');
+    sectionElement.html(`
+<section>
+    <h2>Our menu will be:</h2>
+    <div id="meal-menu"></div>
+</section>`);
+    sectionElement.appendTo(mainElement);
+}
+
+function createNextMealStructure() {
+    const mainElement = $('main');
+
+    const upcomingMealSectionElement = $('<section>', { id: 'upcoming-meal' });
+    upcomingMealSectionElement.html(`
+<div>
+    <div id="next-meal-month"></div>
+    <div id="next-meal-timebutton">
+        <div id="next-meal-time"></div>
+        <div id="next-meal-button">
+            <a href="https://hunterparks--9c54d9aaf8af11efaf2e569c3dd06744.web.val.run/next-meal.ics">
+                <button type="button">Add to Calendar</button>
+            </a>
+        </div>
+    </div>
+    <div id="next-meal-daydate">
+        <div id="next-meal-date"></div>
+        <div id="next-meal-day"></div>
+    </div>
+    <div id="next-meal-countdown"></div>
+</div>`);
+    upcomingMealSectionElement.appendTo(mainElement);
+}
+
 /**
  * Get the next scheduled meal relative to now or override, if specified.
  * @param {Date} [override] Override of reference date, defaults to `new Date()`.
@@ -140,6 +180,11 @@ async function main() {
     });
     populateFooter();
     const nextMeal = getNextMeal();
-    populateNextMeal(nextMeal);
-    populateMenu(nextMeal);
+    if (nextMeal) {
+        clearMain();
+        createNextMealStructure();
+        populateNextMeal(nextMeal);
+        createMenuStructure();
+        populateMenu(nextMeal);
+    }
 }
